@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Houses</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+    <!-- Add House editText and textView fields -->
+    <string name="hint_houseAddress">House Address</string>
+    <string name="hint_houseDescription">Description </string>
+    <string name="hint_listPrice">List Price</string>
+    <string name="hint_auctioneer">Auctioneer</string>
+    <string name="hint_bedrooms">Bed</string>
+    <string name="hint_bathrooms">Bath</string>
+    <string name="hint_soldPrice">Sold Price</string>
+    <string name="hint_list_title">Listed at: €</string>
+    <string name="hint_sold_title">Sold at: €</string>
+    <string name="hint_list_date">Listed on</string>
+
+    <!-- MENU ITEMS -->
+    <string name="menu_addHouse">Add</string>
+    <string name="menu_cancelHouse">Cancel</string>
+    <string name="menu_mapMode">Map Mode</string>
+
+    <!-- CRUD -->
+    <string name="Update_house">Update House</string>
+    <string name="button_addHouse">Add House</string>
+    <string name="button_addImage"> Add Image </string>
+    <string name="select_house_image">Select house image</string>
+    <string name="change_houseImage">Change House Image</string>
+    <string name="button_deleterHouse">Delete House</string>
+    <string name="button_location">Set Location</string>
+
+    <!-- Warnings and messages to user -->
+    <string name="dialog_msg_confirm_irreversible_stuff">Are you sure you want to delete this house?</string>
+    <string name="enter_listPrice">Please enter a list price</string>
+    <string name="enter_houseAddress">Please enter a house address</string>
+    <string name="title_activity_house_maps">Map of All Houses</string>
+    <string name="fab_info_button">More information</string>
+
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_map">MapActivity</string>
+
+
+</resources>
