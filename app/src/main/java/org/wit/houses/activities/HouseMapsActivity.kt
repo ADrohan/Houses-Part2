@@ -25,7 +25,6 @@ class HouseMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
 
         app = application as MainApp
         binding = ActivityHouseMapsBinding.inflate(layoutInflater)
-        //setContentView(R.layout.activity_house_maps)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
@@ -44,7 +43,7 @@ class HouseMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
         app.houses.findAll().forEach {
             val loc = LatLng(it.lat, it.lng)
             val options = MarkerOptions().title(it.address).position(loc)
-            map.addMarker(options).tag = it.id
+            map.addMarker(options)?.tag = it.id
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
         }
     }
