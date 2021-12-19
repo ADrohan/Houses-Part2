@@ -62,6 +62,11 @@ class HouseListActivity : AppCompatActivity(), HouseListener {
         mapsIntentLauncher.launch(launcherIntent)
     }
 
+    override fun onResume() {
+        binding.recyclerView.adapter?.notifyDataSetChanged()
+        super.onResume()
+    }
+
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
