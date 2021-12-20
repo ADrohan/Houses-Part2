@@ -63,7 +63,6 @@ class HouseMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
             .placeholder(R.drawable.home_modern)
             .into(contentBinding.includeCard.imageIcon)
         return true
-
     }
 
     override fun onDestroy() {

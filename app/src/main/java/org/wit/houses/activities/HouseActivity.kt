@@ -17,7 +17,6 @@ import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
 import org.wit.houses.models.Location
 import splitties.alertdialog.*
-
 import timber.log.Timber.i
 import java.text.SimpleDateFormat
 import java.util.*
@@ -71,30 +70,10 @@ class HouseActivity : AppCompatActivity() {
             house.address = binding.houseAddress.text.toString()
             house.description = binding.description.text.toString()
             house.auctioneer = binding.auctioneer.text.toString()
-
-            try {
-                house.listPrice = binding.listPrice.text.toString().toInt()
-            } catch (ex:Exception) {
-                house.listPrice = 0
-            }
-
-            try {
-                house.bedrooms = binding.bedrooms.text.toString().toInt()
-            } catch (ex:Exception) {
-                house.bedrooms = 0
-            }
-
-            try {
-                house.bathrooms = binding.bathrooms.text.toString().toInt()
-            } catch (ex:Exception) {
-                house.bathrooms = 0
-            }
-
-            try {
-                house.soldPrice = binding.soldPrice.text.toString().toInt()
-            } catch (ex:Exception) {
-                house.soldPrice = 0
-            }
+            house.bedrooms = binding.bedrooms.text.toString().toIntOrNull() ?: 0
+            house.bathrooms = binding.bathrooms.text.toString().toIntOrNull() ?: 0
+            house.soldPrice = binding.soldPrice.text.toString().toIntOrNull() ?: 0
+            house.listPrice = binding.listPrice.text.toString().toIntOrNull() ?: 0
 
             if (house.address.isEmpty() ) {
                 Snackbar.make(it, R.string.enter_houseAddress, Snackbar.LENGTH_LONG)
