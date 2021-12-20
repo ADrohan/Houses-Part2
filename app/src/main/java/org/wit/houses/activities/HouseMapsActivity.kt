@@ -60,7 +60,8 @@ class HouseMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
         contentBinding.includeCard.bedrooms.text = house.bedrooms.toString()
         Picasso.get()
             .load(house.image)
-            .placeholder(R.drawable.home_modern)
+            .placeholder(R.drawable.orange_house)
+            .resize(200,200)
             .into(contentBinding.includeCard.imageIcon)
         return true
     }
