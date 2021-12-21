@@ -10,8 +10,8 @@
     <string name="hint_bedrooms">Bed</string>
     <string name="hint_bathrooms">Bath</string>
     <string name="hint_soldPrice">Sold Price</string>
-    <string name="hint_list_title">Listed at: €</string>
-    <string name="hint_sold_title">Sold at: €</string>
+    <string name="hint_list_title">Listed: €</string>
+    <string name="hint_sold_title">Sold: €</string>
     <string name="hint_list_date">Listed on</string>
 
     <!-- MENU ITEMS -->

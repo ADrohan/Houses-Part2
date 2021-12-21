@@ -9,7 +9,7 @@
     android:elevation="24dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="461dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/secondaryLightColor"
         android:padding="0dp">
@@ -22,7 +22,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:paddingStart="0dp"
-            android:paddingEnd="80dp"
+            android:paddingEnd="16dp"
             android:text="@string/hint_houseAddress"
             android:textColor="@color/secondaryTextColor"
             android:textSize="24sp"
@@ -93,6 +93,7 @@
             android:layout_width="371dp"
             android:layout_height="26dp"
             android:layout_marginBottom="4dp"
+            android:layout_marginStart="12dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-light"
@@ -104,7 +105,6 @@
             android:textSize="16sp"
             app:drawableLeftCompat="@drawable/ic_outline_description_24"
             app:drawableTint="@color/secondaryDarkColor"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.177"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,8 +124,8 @@
 
         <TextView
             android:id="@+id/listTitle"
-            android:layout_width="122dp"
-            android:layout_height="28dp"
+            android:layout_width="100dp"
+            android:layout_height="27dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
@@ -140,8 +140,8 @@
 
         <TextView
             android:id="@+id/sold_title"
-            android:layout_width="107dp"
-            android:layout_height="28dp"
+            android:layout_width="87dp"
+            android:layout_height="27dp"
             android:layout_marginStart="16dp"
             android:fontFamily="sans-serif-light"
             android:text="@string/hint_sold_title"
