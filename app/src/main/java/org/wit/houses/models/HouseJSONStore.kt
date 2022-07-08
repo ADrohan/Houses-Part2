@@ -58,11 +58,11 @@ class HouseJSONStore(private val context: Context) : HouseStore {
             foundHouse.bathrooms = house.bathrooms
             foundHouse.description = house.description
             foundHouse.soldPrice = house.soldPrice
-            foundHouse.auctioneer= house.auctioneer
             foundHouse.image = house.image
             foundHouse.lat = house.lat
             foundHouse.lng = house.lng
             foundHouse.zoom = house.zoom
+            foundHouse.soldDate = house.soldDate
             //serialize()
         }
         serialize()

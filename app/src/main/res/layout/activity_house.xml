@@ -106,18 +106,6 @@
                     android:textColor="@color/secondaryTextColor"
                     android:textSize="14sp" />
 
-                <EditText
-                    android:id="@+id/auctioneer"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_auctioneer"
-                    android:inputType="text"
-                    android:maxLength="80"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/soldPrice"

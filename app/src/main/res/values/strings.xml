@@ -5,19 +5,21 @@
     <!-- Add House editText and textView fields -->
     <string name="hint_houseAddress">House Address</string>
     <string name="hint_houseDescription">Description </string>
-    <string name="hint_listPrice">List Price</string>
-    <string name="hint_auctioneer">Auctioneer</string>
     <string name="hint_bedrooms">Bed</string>
     <string name="hint_bathrooms">Bath</string>
+    <string name="hint_listPrice">List Price</string>
     <string name="hint_soldPrice">Sold Price</string>
     <string name="hint_list_title">Listed: €</string>
     <string name="hint_sold_title">Sold: €</string>
     <string name="hint_list_date">Listed on</string>
+    <string name="hint_sold_date">Sold on</string>
 
     <!-- MENU ITEMS -->
     <string name="menu_addHouse">Add</string>
     <string name="menu_cancelHouse">Cancel</string>
     <string name="menu_mapMode">Map Mode</string>
+    <string name="menu_updateHouse">Update</string>
+    <string name="menu_deleteHouse">Delete</string>
 
     <!-- CRUD -->
     <string name="Update_house">Update House</string>
