@@ -38,7 +38,7 @@ class HouseAdapter constructor(private var houses: List<HouseModel>,
             binding.bedrooms.text = house.bedrooms.toString()
             binding.bathrooms.text = house.bathrooms.toString()
             binding.description.text = house.description
-            binding.listDate.text = house.listDate
+           // binding.listDate.text = house.listDate
             binding.soldPrice.text = house.soldPrice.toString()
             Picasso.get()
                 .load(house.image)

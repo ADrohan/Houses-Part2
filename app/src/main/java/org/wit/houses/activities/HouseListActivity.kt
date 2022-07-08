@@ -14,6 +14,7 @@ import org.wit.houses.adapters.HouseListener
 import org.wit.houses.databinding.ActivityHouseListBinding
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
+import org.wit.houses.views.house.HouseView
 
 class HouseListActivity : AppCompatActivity(), HouseListener {
 
@@ -46,7 +47,7 @@ class HouseListActivity : AppCompatActivity(), HouseListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> {
-                val launcherIntent = Intent(this, HouseActivity::class.java)
+                val launcherIntent = Intent(this, HouseView::class.java)
                 refreshIntentLauncher.launch(launcherIntent)
             }
             R.id.item_map -> {
@@ -57,7 +58,7 @@ class HouseListActivity : AppCompatActivity(), HouseListener {
         return super.onOptionsItemSelected(item)
     }
     override fun onHouseClick(house: HouseModel) {
-        val launcherIntent = Intent(this, HouseActivity::class.java)
+        val launcherIntent = Intent(this, HouseView::class.java)
         launcherIntent.putExtra("house_edit", house)
         mapsIntentLauncher.launch(launcherIntent)
     }

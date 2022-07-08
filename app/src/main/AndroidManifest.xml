@@ -51,7 +51,7 @@
             android:name=".activities.HouseListActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".activities.HouseActivity" />
+        <activity android:name=".views.house.HouseView" />
     </application>
 
 </manifest>
