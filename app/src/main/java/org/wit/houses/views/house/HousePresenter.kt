@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import org.wit.houses.activities.MapsActivity
+import org.wit.houses.activities.EditLocationView
 import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.helpers.showImagePicker
 import org.wit.houses.main.MainApp
@@ -75,7 +75,7 @@ class HousePresenter  (private val view: HouseView) {
             location.lng = house.lng
             location.zoom = house.zoom
         }
-            val launcherIntent = Intent(view, MapsActivity::class.java)
+            val launcherIntent = Intent(view, EditLocationView::class.java)
                .putExtra("location", location)
            mapIntentLauncher.launch(launcherIntent)
     }

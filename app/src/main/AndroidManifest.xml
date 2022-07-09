@@ -44,7 +44,7 @@
             android:label="@string/title_activity_house_maps"
             android:theme="@style/Theme.Houses.NoActionBar" />
         <activity
-            android:name=".activities.MapsActivity"
+            android:name=".views.location.EditLocationView"
             android:exported="true"
             android:label="@string/title_activity_maps" />
         <activity
