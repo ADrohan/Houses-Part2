@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.houses.R
+import org.wit.houses.views.houselist.HouseListView
 
 class SplashScreen : AppCompatActivity() {
     private val splashTimeout = 3000
@@ -15,7 +16,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, HouseListActivity::class.java)
+            val intent = Intent(this, HouseListView::class.java)
             startActivity(intent)
             finish()
         }, splashTimeout.toLong())
