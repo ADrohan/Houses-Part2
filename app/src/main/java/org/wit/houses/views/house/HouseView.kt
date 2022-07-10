@@ -23,6 +23,7 @@ class HouseView : AppCompatActivity() {
     private lateinit var presenter: HousePresenter
     var house = HouseModel()
     var calList = Calendar.getInstance()
+    var calSold = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +70,13 @@ class HouseView : AppCompatActivity() {
                 calList.set(Calendar.DAY_OF_MONTH, day)
                 updateListDate()
             }
+        val dateSoldListener =
+            DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                calSold.set(Calendar.YEAR, year)
+                calSold.set(Calendar.MONTH, month)
+                calSold.set(Calendar.DAY_OF_MONTH, day)
+                updateSoldDate()
+            }
 
         binding.selectListDate.setOnClickListener {
             DatePickerDialog(
@@ -76,6 +84,14 @@ class HouseView : AppCompatActivity() {
                 calList.get(Calendar.YEAR),
                 calList.get(Calendar.MONTH),
                 calList.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+        binding.selectSoldDate.setOnClickListener {
+            DatePickerDialog(
+                this@HouseView, dateSoldListener,
+                calSold.get(Calendar.YEAR),
+                calSold.get(Calendar.MONTH),
+                calSold.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
 
@@ -162,6 +178,12 @@ class HouseView : AppCompatActivity() {
         val myFormat = "dd/MM/yyyy"
         val sdf = SimpleDateFormat(myFormat,Locale.getDefault())
         binding.listDate.text = sdf.format(calList.time)
+    }
+
+    private fun updateSoldDate() {
+        val myFormat = "dd/MM/yyyy"
+        val sdf = SimpleDateFormat(myFormat,Locale.getDefault())
+        binding.soldDate.text = sdf.format(calSold.time)
 
     }
 }
