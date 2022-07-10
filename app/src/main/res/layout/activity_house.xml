@@ -84,7 +84,7 @@
         <Button
             android:id="@+id/selectListDate"
             android:layout_width="177dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/button_listDate"
@@ -94,7 +94,7 @@
         <Button
             android:id="@+id/selectSoldDate"
             android:layout_width="177dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:layout_marginTop="12dp"
             android:text="@string/button_soldDate"
             app:layout_constraintEnd_toEndOf="parent"
@@ -105,7 +105,7 @@
         <Button
             android:id="@+id/chooseImage"
             android:layout_width="177dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/button_addImage"
@@ -175,7 +175,7 @@
         <Button
             android:id="@+id/placemarkLocation"
             android:layout_width="177dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:layout_marginStart="216dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -191,8 +191,6 @@
             android:layout_marginStart="193dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-
-            android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.105"
             app:layout_constraintStart_toStartOf="@+id/selectListDate"
@@ -205,8 +203,6 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-
-            android:inputType="date"
             app:layout_constraintStart_toEndOf="@+id/selectSoldDate"
             app:layout_constraintTop_toBottomOf="@+id/selectListDate" />
 

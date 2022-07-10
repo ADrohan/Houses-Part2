@@ -162,8 +162,16 @@ class HouseView : AppCompatActivity() {
             .into(binding.houseImage)
         if (house.image != Uri.EMPTY) {
             binding.chooseImage.setText(R.string.change_houseImage)
+        } else { binding.chooseImage.setText(R.string.button_addImage)
         }
-
+        if (house.listDate.isEmpty()) {
+            binding.selectListDate.setText(R.string.button_listDate)
+        } else {binding.selectListDate.setText(R.string.change_list_date)
+        }
+        if (house.soldDate.isEmpty()) {
+            binding.selectSoldDate.setText(R.string.button_soldDate)}
+        else { binding.selectSoldDate.setText(R.string.change_sold_date)
+        }
     }
 
     fun updateImage(image: Uri) {
