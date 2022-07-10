@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.DatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.houses.R
@@ -64,26 +62,22 @@ class HouseView : AppCompatActivity() {
             presenter.doSetLocation()
         }
 
-        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
-                //TODO("Not yet implemented")
+        val dateSetListener =
+            DatePickerDialog.OnDateSetListener { _, year, month, day ->
                 calList.set(Calendar.YEAR, year)
                 calList.set(Calendar.MONTH, month)
                 calList.set(Calendar.DAY_OF_MONTH, day)
-                   updateListDate()
+                updateListDate()
             }
-        }
 
-        binding.selectListDate.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(view: View) {
-                // TODO("Not yet implemented")
-                DatePickerDialog(this@HouseView, dateSetListener,
-                    calList.get(Calendar.YEAR),
-                    calList.get(Calendar.MONTH),
-                    calList.get(Calendar.DAY_OF_MONTH)
-                ).show()
-            }
-        })
+        binding.selectListDate.setOnClickListener {
+            DatePickerDialog(
+                this@HouseView, dateSetListener,
+                calList.get(Calendar.YEAR),
+                calList.get(Calendar.MONTH),
+                calList.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
 
 
     }
