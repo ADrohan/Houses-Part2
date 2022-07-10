@@ -34,12 +34,12 @@ class HouseAdapter constructor(private var houses: List<HouseModel>,
 
         fun bind(house: HouseModel, listener: HouseListener) {
             binding.houseAddress.text = house.address
-            binding.listPrice.text = house.listPrice
             binding.bedrooms.text = house.bedrooms
             binding.bathrooms.text = house.bathrooms
             binding.description.text = house.description
             binding.listDate.text = house.listDate
             binding.soldDate.text = house.soldDate
+            binding.listPrice.text = house.listPrice
             binding.soldPrice.text = house.soldPrice
             Picasso.get()
                 .load(house.image)

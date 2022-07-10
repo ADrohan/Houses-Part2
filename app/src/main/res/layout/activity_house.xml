@@ -184,28 +184,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description" />
 
-        <EditText
+        <TextView
             android:id="@+id/listDate"
             android:layout_width="145dp"
             android:layout_height="48dp"
             android:layout_marginStart="193dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/hint_listDate"
+
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.105"
             app:layout_constraintStart_toStartOf="@+id/selectListDate"
             app:layout_constraintTop_toBottomOf="@+id/soldPrice" />
 
-        <EditText
+        <TextView
             android:id="@+id/soldDate"
             android:layout_width="145dp"
             android:layout_height="53dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/hint_soldDate"
+
             android:inputType="date"
             app:layout_constraintStart_toEndOf="@+id/selectSoldDate"
             app:layout_constraintTop_toBottomOf="@+id/selectListDate" />

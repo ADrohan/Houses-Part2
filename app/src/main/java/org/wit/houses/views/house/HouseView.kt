@@ -1,10 +1,13 @@
 package org.wit.houses.views.house
 
+import android.app.DatePickerDialog
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.DatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.houses.R
@@ -12,6 +15,8 @@ import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.models.HouseModel
 import splitties.alertdialog.*
 import timber.log.Timber.i
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class HouseView : AppCompatActivity() {
@@ -19,6 +24,7 @@ class HouseView : AppCompatActivity() {
     private lateinit var binding: ActivityHouseBinding
     private lateinit var presenter: HousePresenter
     var house = HouseModel()
+    var calList = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +63,29 @@ class HouseView : AppCompatActivity() {
             )
             presenter.doSetLocation()
         }
+
+        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
+                //TODO("Not yet implemented")
+                calList.set(Calendar.YEAR, year)
+                calList.set(Calendar.MONTH, month)
+                calList.set(Calendar.DAY_OF_MONTH, day)
+                   updateListDate()
+            }
+        }
+
+        binding.selectListDate.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(view: View) {
+                // TODO("Not yet implemented")
+                DatePickerDialog(this@HouseView, dateSetListener,
+                    calList.get(Calendar.YEAR),
+                    calList.get(Calendar.MONTH),
+                    calList.get(Calendar.DAY_OF_MONTH)
+                ).show()
+            }
+        })
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -133,5 +162,12 @@ class HouseView : AppCompatActivity() {
             .load(image)
             .into(binding.houseImage)
         binding.chooseImage.setText(R.string.change_houseImage)
+    }
+
+    private fun updateListDate() {
+        val myFormat = "dd/MM/yyyy"
+        val sdf = SimpleDateFormat(myFormat,Locale.getDefault())
+        binding.listDate.text = sdf.format(calList.time)
+
     }
 }
