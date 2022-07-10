@@ -20,12 +20,6 @@ class HouseView : AppCompatActivity() {
     private lateinit var presenter: HousePresenter
     var house = HouseModel()
 
-    //var edit = false
-
-    // lateinit var app: MainApp
-    // private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
-    //private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

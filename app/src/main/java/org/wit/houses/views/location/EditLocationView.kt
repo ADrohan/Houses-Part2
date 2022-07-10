@@ -1,16 +1,11 @@
 package org.wit.houses.views.location
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.houses.R
 import org.wit.houses.models.Location
 
@@ -19,24 +14,9 @@ class EditLocationView : AppCompatActivity(), OnMapReadyCallback,
     GoogleMap.OnMarkerClickListener {
 
     private lateinit var map: GoogleMap
-    //added two lines below
-    //private lateinit var binding: ActivityMapBinding
     lateinit var presenter: EditLocationPresenter
     var location = Location()
 
-    /*
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
-        //add line below
-        presenter = EditLocationPresenter(this)
-        location = intent.extras?.getParcelable<Location>("location")!!
-
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-    }
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -46,21 +26,6 @@ class EditLocationView : AppCompatActivity(), OnMapReadyCallback,
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
-/*
-    override fun onMapReady(googleMap: GoogleMap) {
-        map = googleMap
-        val loc = LatLng(location.lat, location.lng)
-        val options = MarkerOptions()
-            .title("House")
-            .snippet("GPS : $loc")
-            .draggable(true)
-            .position(loc)
-        map.addMarker(options)
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
-        map.setOnMarkerDragListener(this)
-        map.setOnMarkerClickListener(this)
-    }
- */
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
@@ -72,40 +37,14 @@ class EditLocationView : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onMarkerDrag(marker: Marker) {
     }
-    /*
-        override fun onMarkerDragEnd(marker: Marker) {
-            location.lat = marker.position.latitude
-            location.lng = marker.position.longitude
-            location.zoom = map.cameraPosition.zoom
-        }
-     */
     override fun onMarkerDragEnd(marker: Marker) {
         presenter.doUpdateLocation(marker.position.latitude,marker.position.longitude, map.cameraPosition.zoom)
     }
-
-    /*
-    override fun onBackPressed() {
-        val resultIntent = Intent()
-        resultIntent.putExtra("location", location)
-        setResult(Activity.RESULT_OK, resultIntent)
-        finish()
-        super.onBackPressed()
-    }
-
-     */
 
     override fun onBackPressed() {
         presenter.doOnBackPressed()
     }
 
-    /*
-    override fun onMarkerClick(marker: Marker): Boolean {
-        val loc = LatLng(location.lat, location.lng)
-        marker.snippet = "GPS : $loc"
-        return false
-    }
-
-     */
     override fun onMarkerClick(marker: Marker): Boolean {
         presenter.doUpdateMarker(marker)
         return false

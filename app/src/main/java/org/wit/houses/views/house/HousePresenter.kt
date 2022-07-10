@@ -5,12 +5,12 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import org.wit.houses.activities.EditLocationView
 import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.helpers.showImagePicker
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
 import org.wit.houses.models.Location
+import org.wit.houses.views.location.EditLocationView
 import timber.log.Timber
 
 class HousePresenter  (private val view: HouseView) {
