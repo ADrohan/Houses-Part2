@@ -37,7 +37,9 @@ class HouseView : AppCompatActivity() {
                 binding.bedrooms.text.toString(),
                 binding.bathrooms.text.toString(),
                 binding.soldPrice.text.toString(),
-                binding.listPrice.text.toString()
+                binding.listPrice.text.toString(),
+                binding.listDate.text.toString(),
+                binding.soldDate.text.toString()
             )
             presenter.doSelectImage()
         }
@@ -49,7 +51,9 @@ class HouseView : AppCompatActivity() {
                 binding.bedrooms.text.toString(),
                 binding.bathrooms.text.toString(),
                 binding.soldPrice.text.toString(),
-                binding.listPrice.text.toString()
+                binding.listPrice.text.toString(),
+                binding.listDate.text.toString(),
+                binding.soldDate.text.toString()
             )
             presenter.doSetLocation()
         }
@@ -84,8 +88,9 @@ class HouseView : AppCompatActivity() {
                         binding.bathrooms.text.toString(),
                         binding.bedrooms.text.toString(),
                         binding.soldPrice.text.toString(),
-                        binding.listPrice.text.toString()
-                      //  binding.listPrice.text.toString().toInt()
+                        binding.listPrice.text.toString(),
+                        binding.listDate.text.toString(),
+                        binding.soldDate.text.toString()
                     )
                 }
             }
@@ -110,7 +115,9 @@ class HouseView : AppCompatActivity() {
         binding.bathrooms.setText(house.bathrooms)
         binding.description.setText(house.description)
         binding.soldPrice.setText(house.soldPrice)
-        binding.btnAdd.setText(R.string.Update_house)
+        binding.listDate.setText(house.listDate)
+        binding.soldDate.setText(house.soldDate)
+      //  binding.btnAdd.setText(R.string.Update_house)
         Picasso.get()
             .load(house.image)
             .into(binding.houseImage)

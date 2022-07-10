@@ -33,13 +33,15 @@ class HousePresenter  (private val view: HouseView) {
     }
 
     fun doAddOrSave(address: String, description: String,
-                    bedrooms: String, bathrooms: String, soldPrice: String, listPrice: String) {
+                    bedrooms: String, bathrooms: String, soldPrice: String, listPrice: String, listDate: String, soldDate: String) {
         house.address = address
         house.description = description
         house.bedrooms = bedrooms
         house.bathrooms = bathrooms
         house.soldPrice = soldPrice
         house.listPrice = listPrice
+        house.listDate = listDate
+        house.soldDate = soldDate
 
         if (edit) {
             app.houses.update(house)
@@ -80,13 +82,15 @@ class HousePresenter  (private val view: HouseView) {
            mapIntentLauncher.launch(launcherIntent)
     }
     fun cachePlacemark (address: String, description: String,
-                        bedrooms: String, bathrooms: String, soldPrice: String, listPrice: String ) {
+                        bedrooms: String, bathrooms: String, soldPrice: String, listPrice: String, listDate: String, soldDate: String ) {
         house.address = address
         house.description = description
         house.bedrooms = bedrooms
         house.bathrooms = bathrooms
         house.soldPrice = soldPrice
         house.listPrice = listPrice
+        house.listDate = listDate
+        house.soldDate = soldDate
     }
 
     private fun registerImagePickerCallback() {

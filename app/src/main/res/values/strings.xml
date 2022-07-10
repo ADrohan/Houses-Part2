@@ -11,8 +11,8 @@
     <string name="hint_soldPrice">Sold Price</string>
     <string name="hint_list_title">Listed: €</string>
     <string name="hint_sold_title">Sold: €</string>
-    <string name="hint_list_date">Listed on</string>
-    <string name="hint_sold_date">Sold on</string>
+    <string name="hint_listDate">"__/__/____"</string>
+    <string name="hint_soldDate">"__/__/____"</string>
 
     <!-- MENU ITEMS -->
     <string name="menu_addHouse">Add</string>
@@ -29,6 +29,8 @@
     <string name="change_houseImage">Change House Image</string>
     <string name="button_deleterHouse">Delete House</string>
     <string name="button_location">Set Location</string>
+    <string name="button_listDate">Add List Date</string>
+    <string name="button_soldDate">Add Sold Date</string>
 
     <!-- Warnings and messages to user -->
     <string name="dialog_msg_confirm_irreversible_stuff">Are you sure you want to delete this house?</string>

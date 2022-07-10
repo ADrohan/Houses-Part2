@@ -7,180 +7,209 @@
     android:layout_height="match_parent"
     tools:context="org.wit.houses.views.house.HouseView">
 
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/primaryColor"
+        android:fitsSystemWindows="true"
+        app:elevation="0dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:fitsSystemWindows="true"
-            app:elevation="0dip"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            app:titleTextColor="@color/primaryTextColor" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:titleTextColor="@color/primaryTextColor" />
-        </com.google.android.material.appbar.AppBarLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="720dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ScrollView
+
+        <EditText
+            android:id="@+id/houseAddress"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/appBarLayout"
-            android:layout_marginTop="25dp"
-            android:fillViewport="true">
+            android:layout_height="51dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/hint_houseAddress"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <EditText
+            android:id="@+id/listPrice"
+            android:layout_width="157dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_listPrice"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/houseAddress" />
 
-                <EditText
-                    android:id="@+id/houseAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_houseAddress"
-                    android:inputType="text"
-                    android:maxLength="120"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/listPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_listPrice"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/bedrooms"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_bedrooms"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/bathrooms"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_bathrooms"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_houseDescription"
-                    android:inputType="text"
-                    android:maxLength="200"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
+        <EditText
+            android:id="@+id/soldPrice"
+            android:layout_width="145dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/hint_soldPrice"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.622"
+            app:layout_constraintStart_toEndOf="@+id/listPrice"
+            app:layout_constraintTop_toBottomOf="@+id/houseAddress" />
 
 
-                <EditText
-                    android:id="@+id/soldPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_soldPrice"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/secondaryTextColor"
-                    android:textSize="14sp" />
+        <Button
+            android:id="@+id/selectListDate"
+            android:layout_width="177dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/button_listDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listPrice" />
 
-                <Button
-                    android:id="@+id/chooseImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/primaryColor"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp"/>
+        <Button
+            android:id="@+id/selectSoldDate"
+            android:layout_width="177dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/button_soldDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectListDate" />
 
-                <ImageView
-                    android:id="@+id/houseImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_app_launcher"/>
+        <Button
+            android:id="@+id/chooseImage"
+            android:layout_width="177dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/button_addImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="16dp"
-                    android:background="@color/primaryLightColor"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addHouse"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp" />
+        <EditText
+            android:id="@+id/bedrooms"
+            android:layout_width="109dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_bedrooms"
+            android:inputType="number"
+            android:maxLength="2"
+            android:maxLines="1"
+            app:layout_constraintEnd_toStartOf="@+id/bathrooms"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectSoldDate" />
 
-                <Button
-                    android:id="@+id/placemarkLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/primaryLightColor"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_location"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp"/>
+        <EditText
+            android:id="@+id/bathrooms"
+            android:layout_width="109dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="72dp"
+            android:ems="10"
+            android:hint="@string/hint_bathrooms"
+            android:inputType="number"
+            android:maxLength="2"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectSoldDate" />
 
-                <Button
-                    android:id="@+id/btnDelete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="16dp"
-                    android:background="@color/primaryLightColor"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_deleterHouse"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp" />
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/hint_houseDescription"
+            android:inputType="text"
+            android:maxLength="200"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bedrooms" />
 
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/houseImage"
+            android:layout_width="473dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseImage"
+            app:srcCompat="@mipmap/ic_app_launcher" />
+
+        <Button
+            android:id="@+id/placemarkLocation"
+            android:layout_width="177dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="216dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/button_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <EditText
+            android:id="@+id/listDate"
+            android:layout_width="145dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="193dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_listDate"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="@+id/selectListDate"
+            app:layout_constraintTop_toBottomOf="@+id/soldPrice" />
+
+        <EditText
+            android:id="@+id/soldDate"
+            android:layout_width="145dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_soldDate"
+            android:inputType="date"
+            app:layout_constraintStart_toEndOf="@+id/selectSoldDate"
+            app:layout_constraintTop_toBottomOf="@+id/selectListDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

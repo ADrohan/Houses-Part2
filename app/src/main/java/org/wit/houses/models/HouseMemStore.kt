@@ -39,6 +39,7 @@ class HouseMemStore : HouseStore {
             foundHouse.lat = house.lat
             foundHouse.lng = house.lng
             foundHouse.zoom = house.zoom
+            foundHouse.listDate = house.listDate
             foundHouse.soldDate = house.soldDate
             logAll()
         }
