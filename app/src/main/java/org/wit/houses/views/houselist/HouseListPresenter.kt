@@ -3,10 +3,11 @@ package org.wit.houses.views.houselist
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import org.wit.houses.activities.HouseMapsActivity
+//import org.wit.houses.activities.HouseMapView
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
 import org.wit.houses.views.house.HouseView
+import org.wit.houses.views.map.HouseMapView
 
 class HouseListPresenter(val view: HouseListView) {
 
@@ -32,11 +33,10 @@ class HouseListPresenter(val view: HouseListView) {
         launcherIntent.putExtra("house_edit", house)
         // refreshIntentLauncher.launch(launcherIntent)
         mapIntentLauncher.launch(launcherIntent)
-
     }
 
     fun doShowHousesMap() {
-        val launcherIntent = Intent(view, HouseMapsActivity::class.java)
+        val launcherIntent = Intent(view, HouseMapView::class.java)
         refreshIntentLauncher.launch(launcherIntent)
     }
 

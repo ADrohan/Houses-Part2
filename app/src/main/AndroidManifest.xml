@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.HouseMapsActivity"
+            android:name=".views.map.HouseMapView"
             android:exported="true"
             android:label="@string/title_activity_house_maps"
             android:theme="@style/Theme.Houses.NoActionBar" />
