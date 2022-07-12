@@ -159,6 +159,7 @@ class HouseView : AppCompatActivity() {
       //  binding.btnAdd.setText(R.string.Update_house)
         Picasso.get()
             .load(house.image)
+            .placeholder(R.drawable.orange_house)
             .into(binding.houseImage)
         if (house.image != Uri.EMPTY) {
             binding.chooseImage.setText(R.string.change_houseImage)

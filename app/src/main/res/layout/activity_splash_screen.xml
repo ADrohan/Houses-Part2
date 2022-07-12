@@ -13,15 +13,18 @@
         android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="325dp"
-            android:layout_height="289dp"
+            android:layout_width="152dp"
+            android:layout_height="146dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="134dp"
             android:layout_marginTop="203dp"
-            android:layout_marginEnd="46dp"
+            android:layout_marginEnd="125dp"
             android:forceHasOverlappingRendering="true"
             android:src="@drawable/orange_house"
             app:tint="@color/secondaryTextColor">
+
         </androidx.appcompat.widget.AppCompatImageView>
     </RelativeLayout>
 
