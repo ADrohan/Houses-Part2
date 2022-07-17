@@ -36,17 +36,19 @@ class HouseMapView : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
     }
 
     fun showHouse(house: HouseModel) {
-        contentBinding.includeCard.houseAddress.text = house!!.address
-        contentBinding.includeCard.listPrice.text = house.listPrice
-        contentBinding.includeCard.soldPrice.text = house.soldPrice
-        contentBinding.includeCard.description.text = house.description
-        contentBinding.includeCard.bathrooms.text = house.bathrooms
-        contentBinding.includeCard.bedrooms.text = house.bedrooms
+        contentBinding.includeCard2.houseAddress.text = house!!.address
+        contentBinding.includeCard2.listPrice.text = house.listPrice
+        contentBinding.includeCard2.soldPrice.text = house.soldPrice
+        contentBinding.includeCard2.description.text = house.description
+        contentBinding.includeCard2.bathrooms.text = house.bathrooms
+        contentBinding.includeCard2.bedrooms.text = house.bedrooms
+        contentBinding.includeCard2.listDate.text = house.listDate
+        contentBinding.includeCard2.soldDate.text = house.soldDate
         Picasso.get()
             .load(house.image)
             .placeholder(R.drawable.orange_house)
             .resize(200,200)
-            .into(contentBinding.includeCard.imageIcon)
+            .into(contentBinding.includeCard2.imageIcon)
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {

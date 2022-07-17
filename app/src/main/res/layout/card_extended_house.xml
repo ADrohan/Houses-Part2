@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryLightColor"
+        android:padding="0dp">
+
+        <TextView
+            android:id="@+id/houseAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="16dp"
+            android:text="@string/hint_houseAddress"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageIcon"
+            android:layout_width="92dp"
+            android:layout_height="94dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/change_houseImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/houseAddress"
+            app:srcCompat="@drawable/orange_house" />
+
+        <TextView
+            android:id="@+id/listPrice"
+            android:layout_width="96dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_listPrice"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/listTitle"
+            app:layout_constraintTop_toBottomOf="@+id/houseAddress" />
+
+        <TextView
+            android:id="@+id/bedrooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_bedrooms"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="16sp"
+            app:drawableLeftCompat="@drawable/ic_baseline_bed_24"
+            app:drawableTint="@color/secondaryDarkColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
+
+        <TextView
+            android:id="@+id/bathrooms"
+            android:layout_width="65dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_bathrooms"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="16sp"
+            app:drawableLeftCompat="@drawable/ic_baseline_bathtub_24"
+            app:drawableTint="@color/secondaryDarkColor"
+            app:layout_constraintStart_toEndOf="@+id/bedrooms"
+            app:layout_constraintTop_toBottomOf="@+id/imageIcon" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="368dp"
+            android:layout_height="171dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_houseDescription"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.153"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bedrooms" />
+
+        <TextView
+            android:id="@+id/soldPrice"
+            android:layout_width="112dp"
+            android:layout_height="27dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_soldPrice"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/sold_title"
+            app:layout_constraintTop_toBottomOf="@+id/listDate" />
+
+        <TextView
+            android:id="@+id/listTitle"
+            android:layout_width="100dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_list_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="20sp"
+            app:drawableLeftCompat="@drawable/ic_baseline_sell_24"
+            app:drawableTint="@color/primaryDarkColor"
+            app:layout_constraintStart_toEndOf="@+id/imageIcon"
+            app:layout_constraintTop_toBottomOf="@+id/houseAddress" />
+
+        <TextView
+            android:id="@+id/sold_title"
+            android:layout_width="87dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/hint_sold_title"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="20sp"
+            app:drawableLeftCompat="@drawable/ic_baseline_sell_24"
+            app:drawableTint="@color/primaryDarkColor"
+            app:layout_constraintStart_toEndOf="@+id/imageIcon"
+            app:layout_constraintTop_toBottomOf="@+id/listDate" />
+
+        <TextView
+            android:id="@+id/listDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="41dp"
+
+            app:layout_constraintStart_toEndOf="@+id/imageIcon"
+            app:layout_constraintTop_toBottomOf="@+id/listTitle" />
+
+        <TextView
+            android:id="@+id/soldDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="41dp"
+            app:layout_constraintStart_toEndOf="@+id/imageIcon"
+            app:layout_constraintTop_toBottomOf="@+id/sold_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
