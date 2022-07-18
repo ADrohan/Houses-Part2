@@ -5,11 +5,14 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.houses.databinding.ActivityHouseBinding
+import org.wit.houses.helpers.checkLocationPermissions
 import org.wit.houses.helpers.showImagePicker
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
@@ -22,19 +25,30 @@ class HousePresenter  (private val view: HouseView) {
     var house = HouseModel()
     var app: MainApp = view.application as MainApp
     var map: GoogleMap? = null
+    var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
+
     var binding: ActivityHouseBinding = ActivityHouseBinding.inflate(view.layoutInflater)
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     var edit = false
+    private val location = Location(52.245696, -7.139102, 15f)
 
     init {
         if (view.intent.hasExtra("house_edit")) {
             edit = true
             house = view.intent.extras?.getParcelable("house_edit")!!
             view.showPlacemark(house)
+        }else {
+            if (checkLocationPermissions(view)) {
+                //@TODO get the current location
+            }
+            house.lat = location.lat
+            house.lng = location.lng
         }
         registerImagePickerCallback()
         registerMapCallback()
+        doPermissionLauncher()
     }
 
     fun doAddOrSave(address: String, description: String,
@@ -76,7 +90,7 @@ class HousePresenter  (private val view: HouseView) {
     }
 
     fun doSetLocation() {
-        val location = Location(52.245696, -7.139102, 15f)
+      //  val location = Location(52.245696, -7.139102, 15f)
         if (house.zoom != 0f) {
             location.lat =  house.lat
             location.lng = house.lng
@@ -153,5 +167,17 @@ class HousePresenter  (private val view: HouseView) {
         map?.addMarker(options)
         map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(house.lat, house.lng), house.zoom))
         view?.showPlacemark(house)
+    }
+
+    private fun doPermissionLauncher() {
+        requestPermissionLauncher =
+            view.registerForActivityResult(ActivityResultContracts.RequestPermission())
+            { isGranted: Boolean ->
+                if (isGranted) {
+                    // to do Set Current Location
+                } else {
+                    locationUpdate(location.lat, location.lng)
+                }
+            }
     }
 }
