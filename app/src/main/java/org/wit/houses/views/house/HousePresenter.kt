@@ -5,6 +5,10 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.helpers.showImagePicker
 import org.wit.houses.main.MainApp
@@ -17,6 +21,7 @@ class HousePresenter  (private val view: HouseView) {
 
     var house = HouseModel()
     var app: MainApp = view.application as MainApp
+    var map: GoogleMap? = null
     var binding: ActivityHouseBinding = ActivityHouseBinding.inflate(view.layoutInflater)
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
@@ -131,5 +136,22 @@ class HousePresenter  (private val view: HouseView) {
                 }
 
             }
+    }
+
+    fun doConfigureMap(m: GoogleMap) {
+        map = m
+        locationUpdate(house.lat, house.lng)
+    }
+
+    fun locationUpdate(lat: Double, lng: Double) {
+        house.lat = lat
+        house.lng = lng
+        house.zoom = 15f
+        map?.clear()
+        map?.uiSettings?.setZoomControlsEnabled(true)
+        val options = MarkerOptions().title(house.address).position(LatLng(house.lat, house.lng))
+        map?.addMarker(options)
+        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(house.lat, house.lng), house.zoom))
+        view?.showPlacemark(house)
     }
 }

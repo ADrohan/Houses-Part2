@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.houses.R
@@ -25,6 +26,8 @@ class HouseView : AppCompatActivity() {
     var calList = Calendar.getInstance()
     var calSold = Calendar.getInstance()
 
+    lateinit var map: GoogleMap
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,6 +35,12 @@ class HouseView : AppCompatActivity() {
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
+
+        binding.mapView2.onCreate(savedInstanceState);
+        binding.mapView2.getMapAsync {
+            map = it
+            presenter.doConfigureMap(map)
+        }
 
         presenter = HousePresenter(this)
 
@@ -194,5 +203,29 @@ class HouseView : AppCompatActivity() {
         val sdf = SimpleDateFormat(myFormat,Locale.getDefault())
         binding.soldDate.text = sdf.format(calSold.time)
 
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.mapView2.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        binding.mapView2.onLowMemory()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.mapView2.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.mapView2.onResume()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        binding.mapView2.onSaveInstanceState(outState)
     }
 }
