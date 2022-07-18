@@ -13,6 +13,10 @@
     <string name="hint_sold_title">Sold: €</string>
     <string name="hint_listDate">"__/__/____"</string>
     <string name="hint_soldDate">"__/__/____"</string>
+    <string name="empty_lat">00.000000</string>
+    <string name="empty_lng">00.000000</string>
+    <string name="lng_title">Long:</string>
+    <string name="lat_title">Lat:</string>
 
     <!-- MENU ITEMS -->
     <string name="menu_addHouse">Add</string>
