@@ -1,5 +1,6 @@
 package org.wit.houses.views.house
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
@@ -41,7 +42,7 @@ class HousePresenter  (private val view: HouseView) {
             view.showPlacemark(house)
         }else {
             if (checkLocationPermissions(view)) {
-                //@TODO get the current location
+                doSetCurrentLocation()
             }
             house.lat = location.lat
             house.lng = location.lng
@@ -166,7 +167,7 @@ class HousePresenter  (private val view: HouseView) {
         val options = MarkerOptions().title(house.address).position(LatLng(house.lat, house.lng))
         map?.addMarker(options)
         map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(house.lat, house.lng), house.zoom))
-        view?.showPlacemark(house)
+        view.showPlacemark(house)
     }
 
     private fun doPermissionLauncher() {
@@ -174,10 +175,18 @@ class HousePresenter  (private val view: HouseView) {
             view.registerForActivityResult(ActivityResultContracts.RequestPermission())
             { isGranted: Boolean ->
                 if (isGranted) {
-                    // to do Set Current Location
+                    doSetCurrentLocation()
                 } else {
                     locationUpdate(location.lat, location.lng)
                 }
             }
     }
+
+    @SuppressLint("MissingPermission")
+    fun doSetCurrentLocation() {
+        locationService.lastLocation.addOnSuccessListener {
+            locationUpdate(it.latitude, it.longitude)
+        }
+    }
+
 }

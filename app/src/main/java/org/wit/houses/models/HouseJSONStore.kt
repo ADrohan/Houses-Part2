@@ -44,10 +44,11 @@ class HouseJSONStore(private val context: Context) : HouseStore {
         houses.add(house)
         serialize()
     }
+
     override fun delete(house: HouseModel) {
-        houses.remove(house)
-        serialize()
-    }
+        val foundHouse: HouseModel? = houses.find { it.id == house.id }
+        houses.remove(foundHouse)
+        serialize() }
 
     override fun update(house: HouseModel) {
         var foundHouse: HouseModel? = houses.find { p -> p.id == house.id}
