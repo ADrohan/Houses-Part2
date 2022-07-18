@@ -40,6 +40,7 @@ class HouseView : AppCompatActivity() {
         binding.mapView2.getMapAsync {
             map = it
             presenter.doConfigureMap(map)
+            it.setOnMapClickListener { presenter.doSetLocation()}
         }
 
         presenter = HousePresenter(this)
@@ -165,6 +166,8 @@ class HouseView : AppCompatActivity() {
         binding.soldPrice.setText(house.soldPrice)
         binding.listDate.setText(house.listDate)
         binding.soldDate.setText(house.soldDate)
+        binding.lat.setText("%.6f".format(house.lat))
+        binding.lng.setText("%.6f".format(house.lng))
       //  binding.btnAdd.setText(R.string.Update_house)
         Picasso.get()
             .load(house.image)
