@@ -7,6 +7,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -14,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.helpers.checkLocationPermissions
+import org.wit.houses.helpers.createDefaultLocationRequest
 import org.wit.houses.helpers.showImagePicker
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
@@ -26,6 +29,7 @@ class HousePresenter  (private val view: HouseView) {
     var house = HouseModel()
     var app: MainApp = view.application as MainApp
     var map: GoogleMap? = null
+    val locationRequest = createDefaultLocationRequest()
     var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
 
     var binding: ActivityHouseBinding = ActivityHouseBinding.inflate(view.layoutInflater)
@@ -96,6 +100,7 @@ class HousePresenter  (private val view: HouseView) {
             location.lat =  house.lat
             location.lng = house.lng
             location.zoom = house.zoom
+            locationUpdate(house.lat, house.lng)
         }
             val launcherIntent = Intent(view, EditLocationView::class.java)
                .putExtra("location", location)
@@ -186,6 +191,21 @@ class HousePresenter  (private val view: HouseView) {
     fun doSetCurrentLocation() {
         locationService.lastLocation.addOnSuccessListener {
             locationUpdate(it.latitude, it.longitude)
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    fun doRestartLocationUpdates() {
+        var locationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult) {
+                if(locationResult != null && locationResult.locations != null) {
+                    val l = locationResult.locations.last()
+                    locationUpdate(l.latitude, l.longitude)
+                }
+            }
+        }
+        if (!edit) {
+            locationService.requestLocationUpdates(locationRequest, locationCallback, null)
         }
     }
 
