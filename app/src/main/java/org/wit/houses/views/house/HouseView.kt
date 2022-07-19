@@ -158,17 +158,18 @@ class HouseView : AppCompatActivity() {
     }
 
     fun showPlacemark(house: HouseModel) {
-        binding.houseAddress.setText(house.address)
-        binding.listPrice.setText(house.listPrice)
-        binding.bedrooms.setText(house.bedrooms)
-        binding.bathrooms.setText(house.bathrooms)
-        binding.description.setText(house.description)
-        binding.soldPrice.setText(house.soldPrice)
-        binding.listDate.setText(house.listDate)
-        binding.soldDate.setText(house.soldDate)
+        if (binding.houseAddress.text.isEmpty()) binding.houseAddress.setText(house.address)
+        if (binding.description.text.isEmpty()) binding.description.setText(house.description)
+        if (binding.bedrooms.text.isEmpty()) binding.bedrooms.setText(house.bedrooms)
+        if (binding.bathrooms.text.isEmpty()) binding.bathrooms.setText(house.bathrooms)
+        if (binding.listPrice.text.isEmpty()) binding.listPrice.setText(house.listPrice)
+        if (binding.soldPrice.text.isEmpty()) binding.soldPrice.setText(house.soldPrice)
+        if (binding.listDate.text.isEmpty())  binding.listDate.setText(house.listDate)
+        if (binding.soldDate.text.isEmpty())  binding.soldDate.setText(house.soldDate)
+
         binding.lat.setText("%.6f".format(house.lat))
         binding.lng.setText("%.6f".format(house.lng))
-      //  binding.btnAdd.setText(R.string.Update_house)
+
         Picasso.get()
             .load(house.image)
             .placeholder(R.drawable.orange_house)
