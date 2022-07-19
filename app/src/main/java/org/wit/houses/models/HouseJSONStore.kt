@@ -29,28 +29,28 @@ class HouseJSONStore(private val context: Context) : HouseStore {
         }
     }
 
-    override fun findAll(): MutableList<HouseModel> {
+    override suspend fun findAll(): MutableList<HouseModel> {
         logAll()
         return houses
     }
 
-    override fun findById(id:Long) : HouseModel? {
+    override suspend fun findById(id:Long) : HouseModel? {
         val foundHouse: HouseModel? = houses.find { it.id == id }
         return foundHouse
     }
 
-    override fun create(house: HouseModel) {
+    override suspend fun create(house: HouseModel) {
         house.id = generateRandomId()
         houses.add(house)
         serialize()
     }
 
-    override fun delete(house: HouseModel) {
+    override suspend fun delete(house: HouseModel) {
         val foundHouse: HouseModel? = houses.find { it.id == house.id }
         houses.remove(foundHouse)
         serialize() }
 
-    override fun update(house: HouseModel) {
+    override suspend fun update(house: HouseModel) {
         var foundHouse: HouseModel? = houses.find { p -> p.id == house.id}
         if (foundHouse != null) {
             foundHouse.address = house.address

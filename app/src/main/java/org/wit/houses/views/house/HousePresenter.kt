@@ -56,7 +56,7 @@ class HousePresenter  (private val view: HouseView) {
         doPermissionLauncher()
     }
 
-    fun doAddOrSave(address: String, description: String,
+    suspend fun doAddOrSave(address: String, description: String,
                     bedrooms: String, bathrooms: String, soldPrice: String, listPrice: String, listDate: String, soldDate: String) {
         house.address = address
         house.description = description
@@ -82,7 +82,7 @@ class HousePresenter  (private val view: HouseView) {
         view.finish()
     }
 
-    fun doDelete() {
+    suspend fun doDelete() {
         app.houses.delete(house)
         Timber.i("delete Button Pressed: $house")
         view.setResult(Activity.RESULT_OK)

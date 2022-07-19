@@ -5,6 +5,7 @@ import org.wit.houses.models.HouseJSONStore
 import org.wit.houses.models.HouseMemStore
 import org.wit.houses.models.HouseModel
 import org.wit.houses.models.HouseStore
+import org.wit.houses.room.HouseStoreRoom
 import timber.log.Timber
 import timber.log.Timber.i
 
@@ -16,7 +17,8 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         //houses = HouseMemStore()
-        houses = HouseJSONStore(applicationContext)
+       // houses = HouseJSONStore(applicationContext)
+        houses = HouseStoreRoom(applicationContext)
         i("Houses started")
     }
 }

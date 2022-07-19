@@ -9,6 +9,9 @@ import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.houses.R
 import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.models.HouseModel
@@ -131,22 +134,28 @@ class HouseView : AppCompatActivity() {
                         .show()
                 }
                 else {
-                    presenter.doAddOrSave(
-                        binding.houseAddress.text.toString(),
-                        binding.description.text.toString(),
-                        binding.bathrooms.text.toString(),
-                        binding.bedrooms.text.toString(),
-                        binding.soldPrice.text.toString(),
-                        binding.listPrice.text.toString(),
-                        binding.listDate.text.toString(),
-                        binding.soldDate.text.toString()
-                    )
+                    GlobalScope.launch(Dispatchers.IO) {
+                        presenter.doAddOrSave(
+                            binding.houseAddress.text.toString(),
+                            binding.description.text.toString(),
+                            binding.bathrooms.text.toString(),
+                            binding.bedrooms.text.toString(),
+                            binding.soldPrice.text.toString(),
+                            binding.listPrice.text.toString(),
+                            binding.listDate.text.toString(),
+                            binding.soldDate.text.toString()
+                        )
+                    }
                 }
             }
             R.id.item_delete -> {
                 alert {
                     messageResource = R.string.dialog_msg_confirm_irreversible_stuff
-                    okButton { presenter.doDelete() }
+                    okButton {
+                        GlobalScope.launch(Dispatchers.IO) {
+                            presenter.doDelete()
+                        }
+                    }
                     cancelButton()
                 }.onShow {}.show()
             }

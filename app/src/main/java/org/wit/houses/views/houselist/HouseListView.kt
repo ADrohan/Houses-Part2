@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.houses.R
 import org.wit.houses.adapters.HouseAdapter
 import org.wit.houses.adapters.HouseListener
@@ -54,10 +57,15 @@ class HouseListView : AppCompatActivity(), HouseListener {
         //  binding.recyclerView.adapter?.notifyDataSetChanged()
         super.onResume()
         loadHouses()
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun loadHouses() {
-        showHouses(app.houses.findAll())
+        GlobalScope.launch(Dispatchers.Main){
+            binding.recyclerView.adapter =
+               HouseAdapter(presenter.getHouses(), this@HouseListView)
+        }
+        //showHouses(app.houses.findAll())
     }
 
     fun showHouses (houses: List<HouseModel>) {

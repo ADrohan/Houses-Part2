@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.houses.R
 import org.wit.houses.databinding.ActivityHouseMapsBinding
 import org.wit.houses.databinding.ContentHouseMapsBinding
@@ -31,7 +34,9 @@ class HouseMapView : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
         contentBinding = ContentHouseMapsBinding.bind(binding.root)
         contentBinding.mapView.onCreate(savedInstanceState)
         contentBinding.mapView.getMapAsync {
-            presenter.doPopulateMap(it)
+            GlobalScope.launch(Dispatchers.Main) {
+                presenter.doPopulateMap(it)
+            }
         }
     }
 
@@ -54,7 +59,9 @@ class HouseMapView : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
-        presenter.doMarkerSelected(marker)
+        GlobalScope.launch(Dispatchers.Main) {
+            presenter.doMarkerSelected(marker)
+        }
         return true
     }
 

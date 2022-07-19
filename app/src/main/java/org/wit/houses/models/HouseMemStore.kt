@@ -11,22 +11,22 @@ class HouseMemStore : HouseStore {
 
     val houses = ArrayList<HouseModel>()
 
-    override fun findAll(): List<HouseModel> {
+    override suspend fun findAll(): List<HouseModel> {
         return houses
     }
 
-    override fun findById(id:Long) : HouseModel? {
+    override suspend fun findById(id:Long) : HouseModel? {
         val foundHouse: HouseModel? = houses.find { it.id == id }
         return foundHouse
     }
 
-    override fun create(house: HouseModel) {
+    override suspend fun create(house: HouseModel) {
         house.id = getId()
         houses.add(house)
         logAll()
     }
 
-    override fun update(house: HouseModel) {
+    override suspend fun update(house: HouseModel) {
         var foundHouse: HouseModel? = houses.find { p -> p.id == house.id}
         if (foundHouse != null) {
             foundHouse.address = house.address
@@ -45,12 +45,12 @@ class HouseMemStore : HouseStore {
         }
     }
 
-    override fun delete(house: HouseModel) {
+    override suspend fun delete(house: HouseModel) {
             houses.remove(house)
             logAll()
     }
 
-    fun logAll() {
+    private fun logAll() {
         houses.forEach{ i("${it}") }
     }
 }

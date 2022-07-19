@@ -2,10 +2,13 @@ package org.wit.houses.models
 
 import android.net.Uri
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class HouseModel(
+@Entity
+data class HouseModel(@PrimaryKey(autoGenerate = true)
     var id: Long = 0,
     var address: String = "",
     var listPrice: String = "",

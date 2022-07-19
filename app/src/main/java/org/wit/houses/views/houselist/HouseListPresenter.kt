@@ -3,7 +3,9 @@ package org.wit.houses.views.houselist
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-//import org.wit.houses.activities.HouseMapView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
 import org.wit.houses.views.house.HouseView
@@ -21,7 +23,7 @@ class HouseListPresenter(val view: HouseListView) {
         registerRefreshCallback()
     }
 
-    fun getHouses() = app.houses.findAll()
+    suspend fun getHouses() = app.houses.findAll()
 
     fun doAddHouse() {
         val launcherIntent = Intent(view, HouseView::class.java)
@@ -43,7 +45,11 @@ class HouseListPresenter(val view: HouseListView) {
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { getHouses() }
+            {
+                GlobalScope.launch(Dispatchers.Main) {
+                    getHouses()
+                }
+            }
     }
 
     private fun registerMapCallback() {
