@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Houses</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps">Map Marker</string>
 
     <!-- Add House editText and textView fields -->
     <string name="hint_houseAddress">House Address</string>

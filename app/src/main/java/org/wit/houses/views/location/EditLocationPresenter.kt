@@ -24,15 +24,15 @@ class EditLocationPresenter  (val view: EditLocationView) {
             .draggable(true)
             .position(loc)
         map.addMarker(options)
+        map.uiSettings.setZoomControlsEnabled(true)
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
         map.setOnMarkerDragListener(view)
         map.setOnMarkerClickListener(view)
     }
 
-    fun doUpdateLocation(lat: Double, lng: Double, zoom: Float) {
+    fun doUpdateLocation(lat: Double, lng: Double) {
         location.lat = lat
         location.lng = lng
-        location.zoom = zoom
     }
 
     fun doOnBackPressed() {
