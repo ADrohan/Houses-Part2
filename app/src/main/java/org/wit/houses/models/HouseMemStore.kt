@@ -36,9 +36,7 @@ class HouseMemStore : HouseStore {
             foundHouse.description = house.description
             foundHouse.soldPrice = house.soldPrice
             foundHouse.image = house.image
-            foundHouse.lat = house.lat
-            foundHouse.lng = house.lng
-            foundHouse.zoom = house.zoom
+            foundHouse.location = house.location
             foundHouse.listDate = house.listDate
             foundHouse.soldDate = house.soldDate
             logAll()

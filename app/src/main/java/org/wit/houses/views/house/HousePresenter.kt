@@ -48,8 +48,10 @@ class HousePresenter  (private val view: HouseView) {
             if (checkLocationPermissions(view)) {
                 doSetCurrentLocation()
             }
-            house.lat = location.lat
-            house.lng = location.lng
+          //  house.lat = location.lat
+            //house.lng = location.lng
+            house.location.lat = location.lat
+            house.location.lng = location.lng
         }
         registerImagePickerCallback()
         registerMapCallback()
@@ -96,11 +98,11 @@ class HousePresenter  (private val view: HouseView) {
 
     fun doSetLocation() {
       //  val location = Location(52.245696, -7.139102, 15f)
-        if (house.zoom != 0f) {
-            location.lat =  house.lat
-            location.lng = house.lng
-            location.zoom = house.zoom
-            locationUpdate(house.lat, house.lng)
+        if (house.location.zoom != 0f) {
+            location.lat =  house.location.lat
+            location.lng = house.location.lng
+            location.zoom = house.location.zoom
+            locationUpdate(house.location.lat, house.location.lng)
         }
             val launcherIntent = Intent(view, EditLocationView::class.java)
                .putExtra("location", location)
@@ -147,9 +149,9 @@ class HousePresenter  (private val view: HouseView) {
                             Timber.i("Got Location ${result.data.toString()}")
                             val location = result.data!!.extras?.getParcelable<Location>("location")!!
                             Timber.i("Location == $location")
-                            house.lat = location.lat
-                            house.lng = location.lng
-                            house.zoom = location.zoom
+                            house.location.lat = location.lat
+                            house.location.lng = location.lng
+                            house.location.zoom = location.zoom
                         }
                     }
                     AppCompatActivity.RESULT_CANCELED -> { } else -> { }
@@ -160,18 +162,18 @@ class HousePresenter  (private val view: HouseView) {
 
     fun doConfigureMap(m: GoogleMap) {
         map = m
-        locationUpdate(house.lat, house.lng)
+        locationUpdate(house.location.lat, house.location.lng)
     }
 
     fun locationUpdate(lat: Double, lng: Double) {
-        house.lat = lat
-        house.lng = lng
-        house.zoom = 15f
+        house.location.lat = lat
+        house.location.lng = lng
+        house.location.zoom = 15f
         map?.clear()
         map?.uiSettings?.setZoomControlsEnabled(true)
-        val options = MarkerOptions().title(house.address).position(LatLng(house.lat, house.lng))
+        val options = MarkerOptions().title(house.address).position(LatLng(house.location.lat, house.location.lng))
         map?.addMarker(options)
-        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(house.lat, house.lng), house.zoom))
+        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(house.location.lat, house.location.lng), house.location.zoom))
         view.showPlacemark(house)
     }
 

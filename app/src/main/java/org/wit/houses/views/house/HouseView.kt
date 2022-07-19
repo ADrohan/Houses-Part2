@@ -176,8 +176,8 @@ class HouseView : AppCompatActivity() {
         if (binding.listDate.text.isEmpty())  binding.listDate.setText(house.listDate)
         if (binding.soldDate.text.isEmpty())  binding.soldDate.setText(house.soldDate)
 
-        binding.lat.setText("%.6f".format(house.lat))
-        binding.lng.setText("%.6f".format(house.lng))
+        binding.lat.setText("%.6f".format(house.location.lat))
+        binding.lng.setText("%.6f".format(house.location.lng))
 
         Picasso.get()
             .load(house.image)

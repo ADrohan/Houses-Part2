@@ -49,8 +49,8 @@ class HouseMapView : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
         contentBinding.includeCard2.bedrooms.text = house.bedrooms
         contentBinding.includeCard2.listDate.text = house.listDate
         contentBinding.includeCard2.soldDate.text = house.soldDate
-        contentBinding.includeCard2.lat.text = house.lat.toString()
-        contentBinding.includeCard2.lng.text = house.lng.toString()
+        contentBinding.includeCard2.lat.text = house.location.lat.toString()
+        contentBinding.includeCard2.lng.text = house.location.lng.toString()
         Picasso.get()
             .load(house.image)
             .placeholder(R.drawable.orange_house)

@@ -2,6 +2,7 @@ package org.wit.houses.models
 
 import android.net.Uri
 import android.os.Parcelable
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
@@ -19,9 +20,7 @@ data class HouseModel(@PrimaryKey(autoGenerate = true)
     var listDate: String = "",
     var soldDate: String = "",
     var image: Uri = Uri.EMPTY,
-    var lat : Double = 0.0,
-    var lng: Double = 0.0,
-    var zoom: Float = 0f
+    @Embedded var location : Location = Location()
 ) : Parcelable
 
 @Parcelize
