@@ -1,6 +1,8 @@
 <resources>
+    <!-- LABELS-->
     <string name="app_name">Houses</string>
     <string name="title_activity_maps">Map Marker</string>
+    <string name="title_activity_login">Log in / Sign up</string>
 
     <!-- Add House editText and textView fields -->
     <string name="hint_houseAddress">House Address</string>
@@ -44,6 +46,13 @@
     <string name="enter_houseAddress">Please enter a house address</string>
     <string name="title_activity_house_maps">Map of All Houses</string>
     <string name="fab_info_button">More information</string>
+
+    <!-- USER -->
+    <string name="email_Title">E-mail</string>
+    <string name="password_Title">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log in</string>
+
 
 
     <!-- Strings used for fragments for navigation -->
