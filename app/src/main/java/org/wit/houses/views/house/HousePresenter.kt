@@ -22,6 +22,7 @@ import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
 import org.wit.houses.models.Location
 import org.wit.houses.views.location.EditLocationView
+import org.wit.houses.views.login.LoginView
 import timber.log.Timber
 
 class HousePresenter  (private val view: HouseView) {
@@ -91,6 +92,12 @@ class HousePresenter  (private val view: HouseView) {
         view.finish()
 
     }
+    fun doLogout(){
+        view.finish()
+        val launcherIntent = Intent(view, LoginView::class.java)
+        mapIntentLauncher.launch(launcherIntent)
+    }
+
 
     fun doSelectImage() {
         showImagePicker(imageIntentLauncher)

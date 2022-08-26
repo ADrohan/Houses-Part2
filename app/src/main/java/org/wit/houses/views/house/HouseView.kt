@@ -39,7 +39,7 @@ class HouseView : AppCompatActivity() {
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
-        binding.mapView2.onCreate(savedInstanceState);
+        binding.mapView2.onCreate(savedInstanceState)
         binding.mapView2.getMapAsync {
             map = it
             presenter.doConfigureMap(map)
@@ -162,6 +162,8 @@ class HouseView : AppCompatActivity() {
             R.id.item_cancel -> {
                 presenter.doCancel()
             }
+            R.id.item_logout -> { presenter.doLogout() }
+
         }
         return super.onOptionsItemSelected(item)
     }

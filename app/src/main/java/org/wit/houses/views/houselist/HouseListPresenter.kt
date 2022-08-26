@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import org.wit.houses.main.MainApp
 import org.wit.houses.models.HouseModel
 import org.wit.houses.views.house.HouseView
+import org.wit.houses.views.login.LoginView
 import org.wit.houses.views.map.HouseMapView
 
 class HouseListPresenter(val view: HouseListView) {
@@ -40,6 +41,11 @@ class HouseListPresenter(val view: HouseListView) {
     fun doShowHousesMap() {
         val launcherIntent = Intent(view, HouseMapView::class.java)
         refreshIntentLauncher.launch(launcherIntent)
+    }
+
+    fun doLogout(){
+        val launcherIntent = Intent(view, LoginView::class.java)
+        mapIntentLauncher.launch(launcherIntent)
     }
 
     private fun registerRefreshCallback() {

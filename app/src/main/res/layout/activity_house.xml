@@ -42,10 +42,10 @@
             android:layout_width="355dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="@string/hint_houseAddress"
+            android:textSize="12sp"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -57,7 +57,7 @@
             android:layout_width="144dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:drawableLeft="@drawable/ic_baseline_sell_24"
             android:drawablePadding="6dp"
             android:ems="10"
@@ -65,6 +65,8 @@
             android:inputType="number"
             android:maxLength="10"
             android:maxLines="1"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/soldPrice"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/houseAddress" />
 
@@ -73,12 +75,13 @@
             android:id="@+id/soldPrice"
             android:layout_width="145dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:drawableLeft="@drawable/ic_baseline_sell_24"
             android:drawablePadding="6dp"
             android:ems="10"
             android:hint="@string/hint_soldPrice"
+            android:textSize="12sp"
             android:inputType="number"
             android:maxLength="10"
             android:maxLines="1"
@@ -89,39 +92,45 @@
 
         <Button
             android:id="@+id/selectListDate"
-            android:layout_width="164dp"
-            android:layout_height="54dp"
+            android:layout_width="144dp"
+            android:layout_height="62dp"
             android:layout_marginStart="16dp"
             android:backgroundTint="@color/primaryLightColor"
             android:text="@string/button_listDate"
             android:textColor="@color/primaryTextColor"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listDate" />
 
         <Button
             android:id="@+id/selectSoldDate"
-            android:layout_width="159dp"
-            android:layout_height="54dp"
+            android:layout_width="144dp"
+            android:layout_height="62dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/primaryLightColor"
             android:text="@string/button_soldDate"
             android:textColor="@color/primaryTextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/selectListDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/soldDate" />
 
         <Button
             android:id="@+id/chooseImage"
-            android:layout_width="164dp"
-            android:layout_height="54dp"
+            android:layout_width="144dp"
+            android:layout_height="62dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/button_addImage"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/placemarkLocation"
+            app:layout_constraintEnd_toEndOf="@+id/selectListDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description" />
 
         <EditText
             android:id="@+id/bedrooms"
-            android:layout_width="82dp"
+            android:layout_width="76dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -132,6 +141,8 @@
             android:inputType="number"
             android:maxLength="2"
             android:maxLines="1"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bathrooms"
             app:layout_constraintEnd_toStartOf="@+id/bathrooms"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +150,7 @@
 
         <EditText
             android:id="@+id/bathrooms"
-            android:layout_width="83dp"
+            android:layout_width="76dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -151,15 +162,16 @@
             android:inputType="number"
             android:maxLength="2"
             android:maxLines="1"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/description"
             app:layout_constraintStart_toEndOf="@+id/bedrooms"
             app:layout_constraintTop_toBottomOf="@+id/selectListDate" />
 
         <EditText
             android:id="@+id/description"
-            android:layout_width="158dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="162dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:drawableLeft="@drawable/ic_outline_description_24"
             android:drawablePadding="6dp"
@@ -169,13 +181,15 @@
             android:maxLength="200"
             android:maxLines="1"
             android:minHeight="48dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bathrooms"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selectSoldDate" />
 
         <ImageView
             android:id="@+id/houseImage"
-            android:layout_width="387dp"
-            android:layout_height="134dp"
+            android:layout_width="375dp"
+            android:layout_height="117dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -186,12 +200,14 @@
 
         <Button
             android:id="@+id/placemarkLocation"
-            android:layout_width="158dp"
-            android:layout_height="54dp"
+            android:layout_width="144dp"
+            android:layout_height="62dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/button_location"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/selectSoldDate"
             app:layout_constraintTop_toBottomOf="@+id/description" />
 
         <TextView
@@ -202,6 +218,7 @@
             android:layout_marginStart="16dp"
             android:ems="10"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/soldDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listPrice" />
 
@@ -220,15 +237,17 @@
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView2"
-            android:layout_width="363dp"
-            android:layout_height="162dp"
+            android:layout_width="362dp"
+            android:layout_height="190dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/houseImage" />
+            app:layout_constraintTop_toBottomOf="@+id/houseImage"
+            app:layout_constraintVertical_bias="0.433" />
 
         <TextView
             android:id="@+id/lat"
@@ -236,6 +255,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/empty_lat"
+            android:textSize="11sp"
             app:layout_constraintStart_toEndOf="@+id/latTitle"
             app:layout_constraintTop_toBottomOf="@+id/houseImage" />
 
@@ -245,6 +265,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="@string/empty_lng"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/houseImage" />
 
@@ -254,6 +275,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/lat_title"
+            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/houseImage" />
 
@@ -263,6 +285,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/lng_title"
+            android:textSize="11sp"
             app:layout_constraintEnd_toStartOf="@+id/lng"
             app:layout_constraintTop_toBottomOf="@+id/houseImage" />
 

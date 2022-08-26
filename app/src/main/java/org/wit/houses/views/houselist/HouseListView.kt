@@ -46,6 +46,8 @@ class HouseListView : AppCompatActivity(), HouseListener {
             }
             R.id.item_map -> { presenter.doShowHousesMap()
             }
+            R.id.item_logout -> { presenter.doLogout() }
+
         }
         return super.onOptionsItemSelected(item)
     }

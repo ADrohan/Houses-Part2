@@ -11,8 +11,8 @@
     <string name="hint_bathrooms">Bath</string>
     <string name="hint_listPrice">List Price</string>
     <string name="hint_soldPrice">Sold Price</string>
-    <string name="hint_list_title">Listed: €</string>
-    <string name="hint_sold_title">Sold: €</string>
+    <string name="hint_list_title">Listed €</string>
+    <string name="hint_sold_title">Sold €</string>
     <string name="hint_listDate">"__/__/____"</string>
     <string name="hint_soldDate">"__/__/____"</string>
     <string name="empty_lat">00.000000</string>
@@ -23,9 +23,10 @@
     <!-- MENU ITEMS -->
     <string name="menu_addHouse">Add</string>
     <string name="menu_cancelHouse">Cancel</string>
-    <string name="menu_mapMode">Map Mode</string>
+    <string name="menu_mapMode">Show Map</string>
     <string name="menu_updateHouse">Update</string>
     <string name="menu_deleteHouse">Delete</string>
+    <string name="menu_logout">Logout</string>
 
     <!-- CRUD -->
     <string name="Update_house">Update House</string>
@@ -48,8 +49,8 @@
     <string name="fab_info_button">More information</string>
 
     <!-- USER -->
-    <string name="email_Title">E-mail</string>
-    <string name="password_Title">Password</string>
+    <string name="email_Title">E-mail </string>
+    <string name="password_Title">Password </string>
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log in</string>
 
