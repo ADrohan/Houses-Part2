@@ -138,8 +138,8 @@ class HouseView : AppCompatActivity() {
                         presenter.doAddOrSave(
                             binding.houseAddress.text.toString(),
                             binding.description.text.toString(),
-                            binding.bathrooms.text.toString(),
                             binding.bedrooms.text.toString(),
+                            binding.bathrooms.text.toString(),
                             binding.soldPrice.text.toString(),
                             binding.listPrice.text.toString(),
                             binding.listDate.text.toString(),
