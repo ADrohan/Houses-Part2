@@ -14,13 +14,6 @@ class LoginPresenter (val view: LoginView)  {
     }
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    /*fun doLogin(email: String, password: String) {
-        val launcherIntent = Intent(view, HouseListView::class.java)
-        loginIntentLauncher.launch(launcherIntent)
-    }
-
-     */
-
     fun doLogin(email: String, password: String) {
         view.showProgress()
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(view!!) { task ->

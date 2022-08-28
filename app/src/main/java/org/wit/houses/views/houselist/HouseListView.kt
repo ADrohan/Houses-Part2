@@ -70,8 +70,8 @@ class HouseListView : AppCompatActivity(), HouseListener {
         //showHouses(app.houses.findAll())
     }
 
-    fun showHouses (houses: List<HouseModel>) {
-        binding.recyclerView.adapter = HouseAdapter(houses, this)
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-    }
+   // fun showHouses (houses: List<HouseModel>) {
+     //   binding.recyclerView.adapter = HouseAdapter(houses, this)
+      //  binding.recyclerView.adapter?.notifyDataSetChanged()
+   // }
 }

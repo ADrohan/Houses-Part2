@@ -25,8 +25,6 @@ class LoginView : AppCompatActivity(){
             val password = binding.password.text.toString()
             if (email == "" || password == "") {
                 showSnackBar("please provide email and password")
-                //Snackbar.make(binding.root, "please provide email and password", Snackbar.LENGTH_LONG)
-                  //  .show()
             }
             else {
                 presenter.doSignUp(email,password)
@@ -38,8 +36,6 @@ class LoginView : AppCompatActivity(){
             val password = binding.password.text.toString()
             if (email == "" || password == "") {
                 showSnackBar(" Please provide email and password")
-               // Snackbar.make(binding.root, "please provide email and password", Snackbar.LENGTH_LONG)
-                 //   .show()
             }
             else {
                 presenter.doLogin(email,password)

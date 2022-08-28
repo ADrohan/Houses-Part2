@@ -14,14 +14,12 @@ class EditLocationView : AppCompatActivity(),
     GoogleMap.OnMarkerDragListener,
     GoogleMap.OnMarkerClickListener {
     private lateinit var binding: ActivityMapsBinding
-    private lateinit var map: GoogleMap
     lateinit var presenter: EditLocationPresenter
     var location = Location()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapsBinding.inflate(layoutInflater)
-        // setContentView(R.layout.activity_maps)
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
