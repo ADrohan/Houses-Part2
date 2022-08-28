@@ -3,6 +3,7 @@ package org.wit.houses.views.login
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.auth.FirebaseAuth
 import org.wit.houses.views.houselist.HouseListView
 
 class LoginPresenter (val view: LoginView)  {
@@ -11,15 +12,39 @@ class LoginPresenter (val view: LoginView)  {
     init{
         registerLoginCallback()
     }
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    fun doLogin(email: String, password: String) {
+    /*fun doLogin(email: String, password: String) {
         val launcherIntent = Intent(view, HouseListView::class.java)
         loginIntentLauncher.launch(launcherIntent)
     }
 
+     */
+
+    fun doLogin(email: String, password: String) {
+        view.showProgress()
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(view!!) { task ->
+            if (task.isSuccessful) {
+                val launcherIntent = Intent(view, HouseListView::class.java)
+                loginIntentLauncher.launch(launcherIntent)
+            } else {
+                view.showSnackBar("Login failed: ${task.exception?.message}")
+            }
+            view.hideProgress()
+        }
+    }
+
     fun doSignUp(email: String, password: String) {
-        val launcherIntent = Intent(view, HouseListView::class.java)
-        loginIntentLauncher.launch(launcherIntent)
+        view.showProgress()
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(view!!) { task ->
+            if (task.isSuccessful) {
+                val launcherIntent = Intent(view, HouseListView::class.java)
+                loginIntentLauncher.launch(launcherIntent)
+            } else {
+                view.showSnackBar("Login failed: ${task.exception?.message}")
+            }
+            view.hideProgress()
+        }
     }
     private fun registerLoginCallback(){
         loginIntentLauncher =

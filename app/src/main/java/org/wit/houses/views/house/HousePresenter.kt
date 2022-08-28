@@ -49,8 +49,6 @@ class HousePresenter  (private val view: HouseView) {
             if (checkLocationPermissions(view)) {
                 doSetCurrentLocation()
             }
-          //  house.lat = location.lat
-            //house.lng = location.lng
             house.location.lat = location.lat
             house.location.lng = location.lng
         }
