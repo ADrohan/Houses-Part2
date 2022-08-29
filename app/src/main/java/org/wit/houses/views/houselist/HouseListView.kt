@@ -46,7 +46,10 @@ class HouseListView : AppCompatActivity(), HouseListener {
             }
             R.id.item_map -> { presenter.doShowHousesMap()
             }
-            R.id.item_logout -> { presenter.doLogout() }
+            R.id.item_logout -> { GlobalScope.launch(Dispatchers.IO) {
+                presenter.doLogout()
+            }
+            }
 
         }
         return super.onOptionsItemSelected(item)
@@ -56,7 +59,6 @@ class HouseListView : AppCompatActivity(), HouseListener {
     }
 
     override fun onResume() {
-        //  binding.recyclerView.adapter?.notifyDataSetChanged()
         super.onResume()
         loadHouses()
         binding.recyclerView.adapter?.notifyDataSetChanged()
@@ -67,11 +69,7 @@ class HouseListView : AppCompatActivity(), HouseListener {
             binding.recyclerView.adapter =
                HouseAdapter(presenter.getHouses(), this@HouseListView)
         }
-        //showHouses(app.houses.findAll())
     }
 
-   // fun showHouses (houses: List<HouseModel>) {
-     //   binding.recyclerView.adapter = HouseAdapter(houses, this)
-      //  binding.recyclerView.adapter?.notifyDataSetChanged()
-   // }
+
 }

@@ -14,6 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.FirebaseAuth
 import org.wit.houses.databinding.ActivityHouseBinding
 import org.wit.houses.helpers.checkLocationPermissions
 import org.wit.houses.helpers.createDefaultLocationRequest
@@ -39,6 +40,7 @@ class HousePresenter  (private val view: HouseView) {
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     var edit = false
     private val location = Location(52.245696, -7.139102, 15f)
+    var locationManuallyChanged = false;
 
     init {
         if (view.intent.hasExtra("house_edit")) {
@@ -90,7 +92,9 @@ class HousePresenter  (private val view: HouseView) {
         view.finish()
 
     }
+
     fun doLogout(){
+        FirebaseAuth.getInstance().signOut()
         view.finish()
         val launcherIntent = Intent(view, LoginView::class.java)
         mapIntentLauncher.launch(launcherIntent)
@@ -102,7 +106,7 @@ class HousePresenter  (private val view: HouseView) {
     }
 
     fun doSetLocation() {
-      //  val location = Location(52.245696, -7.139102, 15f)
+     locationManuallyChanged = true
         if (house.location.zoom != 0f) {
             location.lat =  house.location.lat
             location.lng = house.location.lng
@@ -134,7 +138,7 @@ class HousePresenter  (private val view: HouseView) {
                     AppCompatActivity.RESULT_OK -> {
                         if (result.data != null) {
                             Timber.i("Got Result ${result.data!!.data}")
-                            house.image = result.data!!.data!!
+                            house.image = result.data!!.data!!.toString()
                             view.updateImage(house.image)
                         }
                     }
@@ -207,7 +211,9 @@ class HousePresenter  (private val view: HouseView) {
             override fun onLocationResult(locationResult: LocationResult) {
                 if(locationResult != null && locationResult.locations != null) {
                     val l = locationResult.locations.last()
-                    locationUpdate(l.latitude, l.longitude)
+                    if (!locationManuallyChanged) {
+                        locationUpdate(l.latitude, l.longitude)
+                    }
                 }
             }
         }

@@ -36,6 +36,6 @@ class HouseStoreRoom(val context: Context) : HouseStore {
         dao.deletePlacemark(house)
     }
 
-    fun clear() {
+    override suspend fun clear() {
     }
 }

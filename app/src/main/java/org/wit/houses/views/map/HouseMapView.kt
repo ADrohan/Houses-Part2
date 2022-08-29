@@ -53,7 +53,7 @@ class HouseMapView : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
         contentBinding.includeCard2.lng.text = house.location.lng.toString()
         Picasso.get()
             .load(house.image)
-            .placeholder(R.drawable.orange_house)
+         //   .placeholder(R.drawable.orange_house)
             .resize(200,200)
             .into(contentBinding.includeCard2.imageIcon)
     }

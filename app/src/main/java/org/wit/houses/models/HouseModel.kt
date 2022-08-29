@@ -11,6 +11,7 @@ import kotlinx.parcelize.Parcelize
 @Entity
 data class HouseModel(@PrimaryKey(autoGenerate = true)
     var id: Long = 0,
+    var fbId: String = "",
     var address: String = "",
     var listPrice: String = "",
     var bedrooms: String = "",
@@ -19,7 +20,8 @@ data class HouseModel(@PrimaryKey(autoGenerate = true)
     var soldPrice: String = "",
     var listDate: String = "",
     var soldDate: String = "",
-    var image: Uri = Uri.EMPTY,
+    var image: String = "",
+   // var image: Uri = Uri.EMPTY,
     @Embedded var location : Location = Location()
 ) : Parcelable
 

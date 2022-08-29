@@ -41,11 +41,13 @@ class HouseAdapter constructor(private var houses: List<HouseModel>,
             binding.soldDate.text = house.soldDate
             binding.listPrice.text = house.listPrice
             binding.soldPrice.text = house.soldPrice
-            Picasso.get()
-                .load(house.image)
-                .placeholder(R.drawable.orange_house)
-                .resize(200,200)
-                .into(binding.imageIcon)
+            if (house.image != "") {
+                Picasso.get()
+                    .load(house.image)
+                    .placeholder(R.drawable.orange_house)
+                    .resize(200, 200)
+                    .into(binding.imageIcon)
+            }
             binding.root.setOnClickListener { listener.onHouseClick(house)}
         }
     }

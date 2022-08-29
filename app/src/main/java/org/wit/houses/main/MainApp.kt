@@ -1,10 +1,7 @@
 package org.wit.houses.main
 
 import android.app.Application
-import org.wit.houses.models.HouseJSONStore
-import org.wit.houses.models.HouseMemStore
-import org.wit.houses.models.HouseModel
-import org.wit.houses.models.HouseStore
+import org.wit.houses.models.*
 import org.wit.houses.room.HouseStoreRoom
 import timber.log.Timber
 import timber.log.Timber.i
@@ -18,7 +15,8 @@ class MainApp : Application() {
         Timber.plant(Timber.DebugTree())
         //houses = HouseMemStore()
        // houses = HouseJSONStore(applicationContext)
-        houses = HouseStoreRoom(applicationContext)
+       // houses = HouseStoreRoom(applicationContext)
+        houses = HouseFireStore(applicationContext)
         i("Houses started")
     }
 }

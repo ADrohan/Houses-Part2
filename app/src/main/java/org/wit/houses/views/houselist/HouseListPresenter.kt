@@ -3,6 +3,7 @@ package org.wit.houses.views.houselist
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -14,12 +15,11 @@ import org.wit.houses.views.map.HouseMapView
 
 class HouseListPresenter(val view: HouseListView) {
 
-    var app: MainApp
+    var app: MainApp = view.application as MainApp
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
 
     init {
-        app = view.application as MainApp
         registerMapCallback()
         registerRefreshCallback()
     }
@@ -43,7 +43,9 @@ class HouseListPresenter(val view: HouseListView) {
         refreshIntentLauncher.launch(launcherIntent)
     }
 
-    fun doLogout(){
+     suspend fun doLogout(){
+        FirebaseAuth.getInstance().signOut()
+        app.houses.clear()
         val launcherIntent = Intent(view, LoginView::class.java)
         mapIntentLauncher.launch(launcherIntent)
     }

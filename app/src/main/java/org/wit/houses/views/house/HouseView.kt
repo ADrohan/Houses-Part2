@@ -1,7 +1,6 @@
 package org.wit.houses.views.house
 
 import android.app.DatePickerDialog
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -181,14 +180,14 @@ class HouseView : AppCompatActivity() {
         binding.lat.setText("%.6f".format(house.location.lat))
         binding.lng.setText("%.6f".format(house.location.lng))
 
-        Picasso.get()
-            .load(house.image)
-            .placeholder(R.drawable.orange_house)
-            .into(binding.houseImage)
-        if (house.image != Uri.EMPTY) {
-            binding.chooseImage.setText(R.string.change_houseImage)
-        } else { binding.chooseImage.setText(R.string.button_addImage)
+        if (house.image != "") {
+            Picasso.get()
+                .load(house.image)
+                .placeholder(R.drawable.orange_house)
+                .into(binding.houseImage)
+                binding.chooseImage.setText(R.string.change_houseImage)
         }
+
         if (house.listDate.isEmpty()) {
             binding.selectListDate.setText(R.string.button_listDate)
         } else {binding.selectListDate.setText(R.string.change_list_date)
@@ -199,7 +198,7 @@ class HouseView : AppCompatActivity() {
         }
     }
 
-    fun updateImage(image: Uri) {
+    fun updateImage(image: String) {
         i("Image updated")
         Picasso.get()
             .load(image)

@@ -6,4 +6,5 @@ interface HouseStore {
     suspend fun update(house: HouseModel)
     suspend fun delete(house: HouseModel)
     suspend fun findById(id:Long) : HouseModel?
+    suspend fun clear()
 }

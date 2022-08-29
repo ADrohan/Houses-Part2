@@ -33,7 +33,7 @@
             android:id="@+id/lat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="96dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="68dp"
             android:text="@string/empty_lat"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,29 +43,25 @@
             android:id="@+id/lng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="106dp"
             android:layout_marginTop="68dp"
-            android:layout_marginEnd="113dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/empty_lng"
+            app:layout_constraintBottom_toBottomOf="@+id/lat"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toEndOf="@+id/lat"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView2"
-            android:layout_width="387dp"
-            android:layout_height="608dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="339dp"
+            android:layout_height="551dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
+
+
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lat"
-            app:layout_constraintVertical_bias="0.23" />
+            app:layout_constraintTop_toBottomOf="@+id/lat" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -80,6 +80,9 @@ class HouseJSONStore(private val context: Context) : HouseStore {
     private fun logAll() {
         houses.forEach { Timber.i("$it") }
     }
+    override suspend fun clear(){
+        houses.clear()
+    }
 }
 
 class UriParser : JsonDeserializer<Uri>,JsonSerializer<Uri> {

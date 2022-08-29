@@ -51,4 +51,7 @@ class HouseMemStore : HouseStore {
     private fun logAll() {
         houses.forEach{ i("${it}") }
     }
+    override suspend fun clear(){
+        houses.clear()
+    }
 }
