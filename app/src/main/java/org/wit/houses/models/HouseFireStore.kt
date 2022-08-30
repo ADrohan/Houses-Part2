@@ -1,15 +1,21 @@
 package org.wit.houses.models
 
 import android.content.Context
+//import android.graphics.Bitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.util.*
+//import com.google.firebase.storage.StorageReference
+//import org.wit.houses.helpers.readImageFromPath
+//import java.io.ByteArrayOutputStream
+//import java.io.File
 import kotlin.collections.ArrayList
+//import timber.log.Timber.i
 
 class HouseFireStore(val context: Context) : HouseStore {
     val houses = ArrayList<HouseModel>()
     lateinit var userId: String
     lateinit var db: DatabaseReference
+    //lateinit var st: StorageReference
 
     override suspend fun findAll(): List<HouseModel> {
         return houses
@@ -27,6 +33,7 @@ class HouseFireStore(val context: Context) : HouseStore {
             house.fbId = key
             houses.add(house)
             db.child("users").child(userId).child("houses").child(key).setValue(house)
+          //  updateImage(house)
         }
     }
 
@@ -46,7 +53,9 @@ class HouseFireStore(val context: Context) : HouseStore {
         }
 
         db.child("users").child(userId).child("houses").child(house.fbId).setValue(house)
-
+    //    if(house.image.length > 0) {
+    //        updateImage(house)
+    //   }
     }
 
     override suspend fun delete(house: HouseModel) {
@@ -78,4 +87,36 @@ class HouseFireStore(val context: Context) : HouseStore {
         db.child("users").child(userId).child("houses")
             .addListenerForSingleValueEvent(valueEventListener)
     }
+    /*
+    fun updateImage(house: HouseModel){
+        if(house.image != ""){
+            val fileName = File(house.image)
+            val imageName = fileName.getName()
+            i("Image name is: " + imageName)
+
+            var imageRef = st.child(userId + '/' + imageName)
+            val baos = ByteArrayOutputStream()
+            val bitmap = readImageFromPath(context, house.image)
+
+            bitmap?.let {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos)
+
+                val data = baos.toByteArray()
+                val uploadTask = imageRef.putBytes(data)
+
+                uploadTask.addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
+                        house.image = it.toString()
+                        db.child("users").child(userId).child("houses").child(house.fbId).setValue(house)
+                    }
+                }.addOnFailureListener{
+                    var errorMessage = it.message
+                    i("Failure: $errorMessage")
+                }
+            }
+
+        }
+    }
+
+     */
 }
